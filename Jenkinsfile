@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stages ('SCM'){
+        stages ('SCM') {
 
             steps {
                 git ' https://github.com/jaikumarimp/game-of-life.git'
