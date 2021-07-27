@@ -9,7 +9,7 @@ pipeline {
             }
         }
         stage ('build')
-        mvn install package
+        mvn  package
 
     }
 }
