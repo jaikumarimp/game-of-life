@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    environment {
+         /var/jenkins_home/maven/bin/mvn
+    }
     stages {
         stage ('SCM') {
 
