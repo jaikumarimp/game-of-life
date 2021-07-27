@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-         /var/jenkins_home/maven/bin/mvn
+         PATH = /var/jenkins_home/maven/bin/mvn:$PATH
     }
     stages {
         stage ('SCM') {
