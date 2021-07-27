@@ -17,7 +17,9 @@ pipeline {
         }
     }
     post {
+        success {
         archive '**/*.war'
         junit '**/TEST-*.xml'
+        }
     }
 }
