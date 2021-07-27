@@ -15,7 +15,9 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-        
-
+    }
+    post {
+        archive '**/*.war'
+        junit '**/TEST-*.xml'
     }
 }
