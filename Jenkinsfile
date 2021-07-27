@@ -1,31 +1,13 @@
 pipeline {
-    agent { label 'GOL'}
-    triggers {
-        cron('H * * * *')
-        pollSCM('* * * * *')
-    }
-    parameters {
-        string(name: 'BRANCH', defaultValue: 'master', description: 'Branch to build' )
-    }
-    stages {
-        stage('scm') {
-            steps {
+    agent any
 
-                git branch: "${params.BRANCH}", url: 'https://github.com/asquarezone/game-of-life.git'
-                //input message: 'Continue to next stage? ', submitter: 'qtaws,qtazure'
-            }
-        }
-        stage('build') {
+    stages {
+        stages ('SCM'){
+
             steps {
-                sh 'mvn package'
+                git ' https://github.com/jaikumarimp/game-of-life.git'
             }
         }
-    }
-    post {
-        success {
-            archive '**/gameoflife.war'
-            junit '**/TEST-*.xml'
-        }
-        
+
     }
 }
