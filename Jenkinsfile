@@ -20,7 +20,7 @@ pipeline {
             steps {
               withCredentials([usernameColonPassword(credentialsId: 'dockerpass1', variable: 'dockerpass')]) {
                 sh "docker login -u jaikumarimp -p ${dockerpass}"
-                sh "docker build -t gol"
+                
               }
 
     // some block
