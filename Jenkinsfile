@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
     environment {
@@ -13,6 +14,13 @@ pipeline {
         stage ('build'){
             steps {
                 sh 'mvn clean install'
+            }
+        }
+        stages ('Docker build'){
+            withCredentials([usernameColonPassword(credentialsId: 'dockerpass1', variable: 'dockerpass')]) {
+                sh "docker login -u ${dockerpass1} -p ${dockerpass}"
+                sh "docker build -t gol"
+    // some block
             }
         }
     }
