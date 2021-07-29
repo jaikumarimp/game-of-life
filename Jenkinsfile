@@ -16,7 +16,7 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-        stage ('Docker build'){
+        /*stage ('Docker build'){
             steps {
               //withCredentials([usernameColonPassword(credentialsId: 'dockerpass1', variable: 'dockerpass')]) {
                 //sh "docker login -u jaikumarimp -p ${dockerpass} "
@@ -25,6 +25,16 @@ pipeline {
 
     // some block
             sh "docker build . -t  gol -f ./gameoflife-web/Dockerfile "
+            }
+        }*/
+
+        stage ('docker build'){
+
+            steps{
+                sshagent(['ec2-user']) {
+                    sh 'ssh -o StrictHostKeyChecking=no ec2-user@54.221.171.35 uptime'
+                }   
+
             }
         }
     }
