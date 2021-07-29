@@ -32,7 +32,7 @@ pipeline {
 
             steps{
                 sshagent(['ec2-user']) {
-                    sh 'ssh -o StrictHostKeyChecking=no ec2-user@54.221.171.35 uptime'
+                    sh 'ssh -o StrictHostKeyChecking=no ec2-user@54.221.171.35 docker build . -t  gol -f ./gameoflife-web/Dockerfile'
                 }   
 
             }
