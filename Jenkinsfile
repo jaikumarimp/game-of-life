@@ -32,8 +32,8 @@ pipeline {
 
             steps{
                 sshagent(['ec2-user']) {
-                    sh 'scp ./gameoflife-web/Dockerfile ec2-user@54.221.171.35:/home/ec2-user/gameoflife-web'
-                    sh 'scp ./gameoflife-web/target/gameoflife.war ec2-user@54.221.171.35:/home/ec2-user/gameoflife-web'
+                    sh 'scp ./workspace/pipelinescript/Dockerfile ec2-user@54.221.171.35:/home/ec2-user/gameoflife-web'
+                    sh 'scp ./.m2/repository/com/wakaleo/gameoflife/gameoflife-web/1.0-SNAPSHOT/gameoflife-web-1.0-SNAPSHOT.war ec2-user@54.221.171.35:/home/ec2-user/gameoflife-web'
                     sh 'ssh -o StrictHostKeyChecking=no ec2-user@54.221.171.35 docker build . -t  gol -f /home/ec2-user/gameoflife-web'
                 }   
 
