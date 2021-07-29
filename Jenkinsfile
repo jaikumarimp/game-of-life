@@ -24,7 +24,7 @@ pipeline {
               //}
 
     // some block
-            sh "docker build . -t  gol "
+            sh "docker build . -t  gol -f ./gameoflife-web/Dockerfile "
             }
         }
     }
