@@ -18,12 +18,13 @@ pipeline {
         }
         stage ('Docker build'){
             steps {
-              withCredentials([usernameColonPassword(credentialsId: 'dockerpass1', variable: 'dockerpass')]) {
-                sh "docker login -u jaikumarimp -p ${dockerpass} "
+              //withCredentials([usernameColonPassword(credentialsId: 'dockerpass1', variable: 'dockerpass')]) {
+                //sh "docker login -u jaikumarimp -p ${dockerpass} "
                 
-              }
+              //}
 
     // some block
+            docker built . -t  gol 
             }
         }
     }
