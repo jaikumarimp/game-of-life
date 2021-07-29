@@ -24,7 +24,7 @@ pipeline {
               //}
 
     // some block
-            docker built . -t  gol 
+            sh "docker build . -t  gol "
             }
         }
     }
