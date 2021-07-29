@@ -19,7 +19,7 @@ pipeline {
         stage ('Docker build'){
             steps {
               withCredentials([usernameColonPassword(credentialsId: 'dockerpass1', variable: 'dockerpass')]) {
-                sh "docker login -u jaikumarimp -p ${dockerpass}"
+                sh "docker login -u jaikumarimp -p ${dockerpass}  https://hub.docker.com"
                 
               }
 
